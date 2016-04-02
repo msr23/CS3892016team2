@@ -36,28 +36,35 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    public void signUpClicked(View v){
+    public void signUpClicked(View v) {
         int id = v.getId();
-        if (id == R.id.signUpButton){
+        if (id == R.id.signUpButton) {
             Intent i = new Intent(LoginActivity.this, SignUp.class);
             startActivity(i);
         }
     }
 
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void skipLoginClicked(View v) {
+        int id = v.getId();
+        if (id == R.id.skipLogin) {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(i);
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
 }
+
