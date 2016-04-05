@@ -72,7 +72,8 @@
         android:text="Skip Login For Now"
         android:id="@+id/skipLogin"
         android:layout_below="@+id/facebookLogin"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="skipLoginClicked" />
 
     <Button
         android:layout_width="match_parent"
@@ -123,6 +124,8 @@
         android:textColor="#0c5c00"
         android:textSize="18dp"
         android:layout_toRightOf="@+id/signUpButton"
-        android:layout_toEndOf="@+id/signUpButton" />
+        android:layout_toEndOf="@+id/signUpButton"
+        android:onClick="signInClicked"
+        android:nestedScrollingEnabled="true" />
 
 </RelativeLayout>
