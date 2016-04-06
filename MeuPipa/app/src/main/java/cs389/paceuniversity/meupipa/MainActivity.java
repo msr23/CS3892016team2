@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -21,12 +22,21 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button createChampionship = (Button) findViewById(R.id.createChampionship);
+        createChampionship.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CreateChampionship.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
     public void createChampionshipClicked(View v) {
         int id = v.getId();
-        if (id == R.id.signUpButton) {
+
+        if (id == R.id.createChampionship) {
             Intent i = new Intent(MainActivity.this, CreateChampionship.class);
             startActivity(i);
         }
