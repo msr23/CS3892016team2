@@ -24,6 +24,10 @@
         <activity
             android:name=".FinishChampionship"
             android:label="@string/title_activity_finish_championship"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AndroidTabLayoutActivity"
+            android:label="@string/title_activity_android_tab_layout"
             android:theme="@style/AppTheme"></activity>
     </application>
 
