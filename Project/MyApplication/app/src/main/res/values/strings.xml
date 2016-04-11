@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="championship_friendly">Friendly Championship</string>
+    <string name="championship_normal">Normal Championship</string>
+    <string name="title_section0">Home</string>
+    <string name="title_section1">Cups</string>
+    <string name="title_section2">Groups</string>
+    <string name="title_section3">Tutorial</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
