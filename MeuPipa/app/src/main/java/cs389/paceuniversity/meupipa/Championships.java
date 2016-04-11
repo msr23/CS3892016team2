@@ -9,6 +9,8 @@ public class Championships {
     int ChampionshipId = 0; //I wonder what the database standard practice is for ID's zzz
     String ChampionshipName;
     String ChampionshipCreator;
+    String ChampionshipLocation;
+
     String ChampionshipDate;
     String ChampionshipTime;
     String ChampionshipType;
@@ -30,13 +32,14 @@ public class Championships {
         ChampionshipId = i;
         ChampionshipName = n;
     }
-    public void Championship(int i, String n, String c, String d, String t, String T, Player playerToAdd)
+    public void Championship(int i, String n, String c, String l, String d, String t, String T, Player playerToAdd)
     {
         //Prolly wanna change T to ty for type
         //default
         ChampionshipId = i;
         ChampionshipName = n;
-        ChampionshipCreator = c;
+        ChampionshipLocation= l;
+
         ChampionshipDate = d;
         ChampionshipTime = t;
         ChampionshipType = T;
@@ -54,10 +57,17 @@ public class Championships {
         return getChampionshipName();
     }
 
-    public String getChampionshipCreator()
+    public String getChampionshipLocation()
     {
+        return ChampionshipLocation;
+    }
+
+
+    public String getChampionshipCreator() {
         return ChampionshipCreator;
     }
+
+
 
     public String getChampionshipDate()
     {
@@ -101,10 +111,12 @@ public class Championships {
         ChampionshipName = n;
     }
 
-    public void setChampionshipCreator(String c)
+    public void setChampionshipLocation(String l)
     {
-        ChampionshipCreator = c;
+        ChampionshipLocation = l;
     }
+
+    public void setChampionshipCreator(String c){ChampionshipCreator = c;}
 
     public void setChampionshipDate(String d)
     {

@@ -19,7 +19,10 @@ import com.firebase.client.ValueEventListener;
 public class CreateChampionship extends AppCompatActivity {
     EditText ChampionshipName;
     EditText ChampionshipLocation; //These three are just my edit text boxes started with just them
-    EditText ChampionshipCreator;
+    EditText ChampionshipTime;
+    EditText ChampionshipDate;
+    RadioButton ChampionshipFriendlyType;
+    RadioButton ChampionshipTournamentType;
     private final static String FIREBASE_URL = "https://meu-pipa1.firebaseio.com/"; //Create a string to store the database url
     private Firebase FirebaseRef; //Creates a reference connection to the firebase database
     Championships champion = new Championships();
@@ -38,7 +41,12 @@ public class CreateChampionship extends AppCompatActivity {
         super.onStart();
         ChampionshipName = (EditText)findViewById(R.id.ChampionshipName);
         ChampionshipLocation = (EditText)findViewById(R.id.ChampionshipLocation);
-        ChampionshipCreator = (EditText)findViewById(R.id.ChampionshipCreator); //Listeners for the text files
+        ChampionshipTime = (EditText)findViewById(R.id.ChampionshipTime);  //Listeners for the text files
+
+
+        //Listeners for the edit texts and for the create championship button
+        //returns false on all listeners besides the create championship button because we don't want
+        //to consume the object until the button is clicked
         ChampionshipName.setOnEditorActionListener(new TextView.OnEditorActionListener(){
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
@@ -49,6 +57,63 @@ public class CreateChampionship extends AppCompatActivity {
 
 
         });
+
+        ChampionshipLocation.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                sendMessage();
+                return false;
+            }
+
+
+        });
+
+        ChampionshipTime.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                sendMessage();
+                return false;
+            }
+
+
+        });
+
+        ChampionshipDate.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                sendMessage();
+                return false;
+            }
+
+
+        });
+
+        ChampionshipFriendlyType.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                sendMessage();
+                return false;
+            }
+
+
+        });
+
+        ChampionshipTournamentType.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                sendMessage();
+                return false;
+            }
+
+
+        });
+
+
 
         findViewById(R.id.CreateChampionship).setOnClickListener(new View.OnClickListener()
         {
@@ -63,21 +128,87 @@ public class CreateChampionship extends AppCompatActivity {
 
     public void sendMessage()
     {
+
+        //This is used to handle messages of our forum and to send the appropriate data to our classes
+        //If the return isnt false then the information is sent to the database
+        //If statements checks to see that the appropriate text field is not blank
+        //Will eventually have it so that it links to the page of un editable text boxes**** TO DO
+
         EditText textChampNameInput = (EditText) (findViewById(R.id.ChampionshipName));
         String ChampName = textChampNameInput.getText().toString();
 
-        EditText textChampCreatorInput = (EditText) (findViewById(R.id.ChampionshipCreator));
-        String ChampCreator = textChampCreatorInput.getText().toString();
 
         EditText textChampLocationInput = (EditText) (findViewById(R.id.ChampionshipLocation));
         String ChampLocation = textChampLocationInput.getText().toString();
+
+        EditText textChampDateInput = (EditText) (findViewById(R.id.ChampionshipDate));
+        String ChampDate = textChampDateInput.getText().toString();
+
+        EditText textChampTimeInput = (EditText) (findViewById(R.id.ChampionshipTime));
+        String ChampTime = textChampTimeInput.getText().toString();
+
+        String ChampType = "";
+
+        RadioButton radChampFriendlyTypeInput = (RadioButton) (findViewById(R.id.ChampionshipFriendlyType));
+       if(radChampFriendlyTypeInput.isChecked())
+        {
+            ChampType = "Friendly";
+        }
+
+
+        RadioButton racChampTournamentTypeInput = (RadioButton) (findViewById(R.id.ChampionshipTounramentType));
+        if(racChampTournamentTypeInput.isChecked())
+        {
+            ChampType = "Tournament";
+        }
+
+
+
         if(!ChampName.equals(""))
         {
-            
-            Championships champ = new Championships();
-            champ.setChampionshipName(ChampName);
-            FirebaseRef.push().setValue(champ);
-            textChampNameInput.setText("");
+            champion.setChampionshipName(ChampName);
+            champion.setChampionshipCreator("Admin");
+
+            if(!ChampLocation.equals(""))
+            {
+                champion.setChampionshipLocation(ChampLocation);
+
+                if(!ChampDate.equals(""))
+                {
+                    champion.setChampionshipDate(ChampDate);
+                    if(!ChampTime.equals(""))
+                    {
+                        champion.setChampionshipTime(ChampTime);
+
+                        if(!ChampType.equals(""))
+                        {
+                            if(ChampType.equals("Friendly"))
+                            {
+                                champion.setChampionshipType(ChampType);
+                            }else if(ChampType.equals("Tournament"))
+                            {
+                                champion.setChampionshipType(ChampType);
+
+                            }
+
+
+                            FirebaseRef.push().setValue(champion);
+                            textChampNameInput.setText("");
+                            textChampLocationInput.setText("");
+                            textChampDateInput.setText("");
+                            textChampTimeInput.setText("");
+
+                            //This may have to get moved outside of this if statement
+                            
+
+                        }
+
+                    }
+                }
+            }
+
+
+
         }
     }
         /*@Override
