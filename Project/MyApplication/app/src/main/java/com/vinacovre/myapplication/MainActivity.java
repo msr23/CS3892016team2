@@ -199,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 case 3:
 //                    getSupportActionBar().setTitle("Tutorial");
                     return new TutorialFragment();
+//                default:
+//                    getSupportActionBar().setTitle("Home");
+//                    break;
             }
             return null;
         }
@@ -215,21 +218,21 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-//                    title = getResources().getString(R.string.title_section0);
-//                    return title;
-                    return null;
+                    title = getResources().getString(R.string.title_section0);
+                    return title;
+//                    return null;
                 case 1:
-//                    title = getResources().getString(R.string.title_section1);
-//                    return title;
-                    return null;
+                    title = getResources().getString(R.string.title_section1);
+                    return title;
+//                    return null;
                 case 2:
-//                    title = getResources().getString(R.string.title_section2);
-//                    return title;
-                    return null;
+                    title = getResources().getString(R.string.title_section2);
+                    return title;
+//                    return null;
                 case 3:
-//                    title = getResources().getString(R.string.title_section3);
-//                    return title;
-                    return null;
+                    title = getResources().getString(R.string.title_section3);
+                    return title;
+//                    return null;
             }
             return null;
         }
