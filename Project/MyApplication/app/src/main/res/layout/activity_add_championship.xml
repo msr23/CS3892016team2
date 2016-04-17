@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Championship Name"
-        android:id="@+id/ChampionshipName"
+        android:id="@+id/textView"
         android:layout_marginLeft="33dp"
         android:layout_marginTop="33dp"
         android:layout_alignParentTop="true"
@@ -21,18 +21,20 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/ChampionshipName"
         android:layout_marginLeft="33dp"
-        android:layout_below="@+id/ChampionshipName"
-        android:layout_alignLeft="@+id/ChampionshipName"
-        android:layout_alignStart="@+id/ChampionshipName" />
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:inputType="text"
+        android:imeOptions="actionSend"/>
 
     <Space
         android:layout_width="fill_parent"
         android:layout_height="30px"
         android:id="@+id/space9"
         android:layout_marginLeft="33dp"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/ChampionshipName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -44,8 +46,8 @@
         android:id="@+id/ChampionshipType"
         android:layout_marginLeft="33dp"
         android:layout_below="@+id/space9"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignLeft="@+id/ChampionshipName"
+        android:layout_alignStart="@+id/ChampionshipName" />
 
     <Space
         android:layout_width="fill_parent"
