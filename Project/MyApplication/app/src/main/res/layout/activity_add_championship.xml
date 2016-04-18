@@ -32,7 +32,7 @@
     <Space
         android:layout_width="fill_parent"
         android:layout_height="30px"
-        android:id="@+id/space9"
+        android:id="@+id/space"
         android:layout_marginLeft="33dp"
         android:layout_below="@+id/ChampionshipName"
         android:layout_alignParentLeft="true"
@@ -45,7 +45,7 @@
         android:text="Championship Type"
         android:id="@+id/ChampionshipType"
         android:layout_marginLeft="33dp"
-        android:layout_below="@+id/space9"
+        android:layout_below="@+id/space"
         android:layout_alignLeft="@+id/ChampionshipName"
         android:layout_alignStart="@+id/ChampionshipName" />
 
