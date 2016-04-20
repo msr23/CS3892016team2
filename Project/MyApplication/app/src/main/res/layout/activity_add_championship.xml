@@ -69,12 +69,14 @@
         <RadioButton android:id="@+id/radio_championship_friendly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/championship_friendly" />
+            android:text="@string/championship_friendly"
+            android:checked="false" />
             <!--android:onClick="onRadioButtonClicked"-->
         <RadioButton android:id="@+id/radio_championship_normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/championship_normal" />
+            android:text="@string/championship_normal"
+            android:checked="false" />
             <!--android:onClick="onRadioButtonClicked"-->
     </RadioGroup>
 
