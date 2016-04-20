@@ -30,7 +30,7 @@ public class NormalChampionshipActivity extends AppCompatActivity {
 
         firebaseRef = new Firebase(FIREBASE_URL);
         String oh = "-KFkYOPECROMhlsiDJKm";
-        Query queryRef = firebaseRef.orderByValue().limitToFirst(n);
+        Query queryRef = firebaseRef.orderByValue().limitToLast(1);
         queryRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot snapshot, String previousChild) {

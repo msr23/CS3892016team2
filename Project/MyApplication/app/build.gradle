@@ -35,5 +35,4 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile 'de.hdodenhof:circleimageview:2.0.0' // ADDED MANUALLY FOLLOWING https://www.youtube.com/watch?v=e0IdtpLtc2E TUTORIAL
 
-    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
