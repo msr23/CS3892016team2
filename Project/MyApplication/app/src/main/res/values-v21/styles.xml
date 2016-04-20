@@ -7,7 +7,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="Custom_Material_Light" parent="android:Theme.Material.Light" >
+    <style name="Custom_Material_Light" parent="android:Theme.Material.Light">
         <item name="android:colorPrimary">@color/material_deep_teal_500</item>
     </style>
 </resources>
