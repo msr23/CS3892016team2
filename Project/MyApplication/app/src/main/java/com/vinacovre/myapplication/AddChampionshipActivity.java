@@ -1,30 +1,30 @@
 package com.vinacovre.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.RadioGroup;
-import android.widget.EditText;
 import android.view.KeyEvent;
 import android.view.View;
-import android.support.*;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
 
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
-
-import java.util.concurrent.ConcurrentHashMap;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 public class AddChampionshipActivity extends AppCompatActivity {
 
     EditText ChampionshipName;
     private final static String FIREBASE_URL = "https://meupipaapplication.firebaseio.com/championships";
     private Firebase firebaseRef;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
 
     @Override
@@ -35,25 +35,25 @@ public class AddChampionshipActivity extends AppCompatActivity {
         firebaseRef = new Firebase(FIREBASE_URL).push();
 
         EditText inputText = (EditText) findViewById(R.id.ChampionshipName);
-        inputText.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+        inputText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
-            {
-                if(actionId == EditorInfo.IME_ACTION_SEND)
-                {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
                     sendMessage();
                 }
                 return true;
             }
         });
 
-        findViewById(R.id.ChampionshipNext).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.ChampionshipNext).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 sendMessage();
             }
         });
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
 
@@ -95,9 +95,51 @@ public class AddChampionshipActivity extends AppCompatActivity {
             System.out.println("******************************************************************");
             textChampNameInput.setText("");
         }
+
+        Intent intet1 = new Intent(this, NormalChampionshipActivity.class);
+        startActivity(intet1);
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "AddChampionship Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.vinacovre.myapplication/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "AddChampionship Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.vinacovre.myapplication/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }
 }
 
   //  getSupportActionBar().setTitle("New Championship");
