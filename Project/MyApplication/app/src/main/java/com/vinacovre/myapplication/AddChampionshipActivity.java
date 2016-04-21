@@ -19,7 +19,7 @@ public class AddChampionshipActivity extends AppCompatActivity {
 
     EditText ChampionshipName;
     private final static String FIREBASE_URL = "https://meupipaapplication.firebaseio.com/championships";
-    private Firebase firebaseRef;
+    public Firebase firebaseRef;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -49,6 +49,7 @@ public class AddChampionshipActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendMessage();
+                finish();
             }
         });
         // ATTENTION: This was auto-generated to implement the App Indexing API.

@@ -8,11 +8,17 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="70dp"
         android:layout_marginRight="20dp"
         android:src="@android:drawable/ic_input_add" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/championshipListView"
+        android:layout_gravity="center_horizontal|top"
+        android:choiceMode="none" />
 
 </FrameLayout>

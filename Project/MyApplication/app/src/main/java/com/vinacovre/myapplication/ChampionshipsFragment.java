@@ -8,6 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.firebase.client.Firebase;
+
 
 public class ChampionshipsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -18,6 +23,9 @@ public class ChampionshipsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    Firebase firebaseRef = new Firebase("https://meupipaapplication.firebaseio.com/championships");
+    
 
     public ChampionshipsFragment() {
         // Required empty public constructor
@@ -39,6 +47,36 @@ public class ChampionshipsFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    /*
+    public void onStart(){
+        super.onStart();
+
+        FirebaseListAdapter<String> adapter = new FirebaseListAdapter<String>(this, String.class, android.R.layout.two_line_list_item, firebaseRef){
+
+            @Override
+            protected void populateView(View view, ChampionshipsFragment, String s, int i){
+
+            }
+
+        }
+
+    }
+    */
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        FirebaseListAdapter<String> adapter = new FirebaseListAdapter<String>(this, String.class, android.R.layout.simple_list_item_1, firebaseRef){
+            @Override
+            public void populateView(View view, String s, int i){
+                TextView.text = new TextView(view).findViewById(android.R.id.text1);
+                text.setText(s);
+            }
+        };
+
     }
 
     @Override
