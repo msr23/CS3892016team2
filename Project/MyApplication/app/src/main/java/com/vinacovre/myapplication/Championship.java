@@ -7,7 +7,7 @@ public class Championship {
    // int ChampionshipId = 0; //I wonder what the database standard practice is for ID's zzz
     private String ChampionshipName;
     private String ChampionshipCreator;
-    /*private String ChampionshipLocation;
+    private String ChampionshipLocation;
 
     private String ChampionshipDate;
     private String ChampionshipTime;
@@ -18,17 +18,21 @@ public class Championship {
     //ArrayList when I am done doing what I need to do, I also wont even be using this in the database anyway
     //Its ok for this field to always be blank!!
 
-    ArrayList<Player> players = new ArrayList();*/
+
 
     public Championship()
     {
         //blank
     }
 
-    public Championship(String n, String c)
+    public Championship(String n, String c, String l, String d, String t, String ty)
     {
         this.ChampionshipName = n;
         this.ChampionshipCreator = c;
+        this.ChampionshipLocation = l;
+        this.ChampionshipTime = t;
+        this.ChampionshipDate = d;
+        this.ChampionshipType = ty;
     }
 
 
@@ -42,10 +46,10 @@ public class Championship {
         return ChampionshipName;
     }
 
- /*  public String getChampionshipLocation()
+  public String getChampionshipLocation()
     {
         return ChampionshipLocation;
-    }*/
+    }
 
 
     public String getChampionshipCreator() {
@@ -54,7 +58,7 @@ public class Championship {
 
 
 
-   /* public String getChampionshipDate()
+    public String getChampionshipDate()
     {
         return ChampionshipDate;
     }
@@ -68,42 +72,20 @@ public class Championship {
     {
         return ChampionshipType;
     }
-    public String getPlayer()
-    {
-        return getPlayerName() + " " + getPlayerID();
-    }
-    public String getPlayerName()
-    {
-        for (int i = 0; i < players.size(); i++)
-            return players.get(i).getPlayerName();
-        return players.get(players.size()).getPlayerName();
-    }
-
-    public int getPlayerID()
-    {
-        for (int i = 0; i <= players.size(); i ++)
-            return players.get(i).getPlayerId();
-        return players.get(players.size()).getPlayerId();
-    }
-
-    public void setChampionshipId(int i)
-    {
-        ChampionshipId = i;
-    } */
 
     public void setChampionshipName(String n)
     {
         ChampionshipName = n;
     }
 
-  /*  public void setChampionshipLocation(String l)
+  public void setChampionshipLocation(String l)
     {
         ChampionshipLocation = l;
-    } */
+    }
 
     public void setChampionshipCreator(String c){ChampionshipCreator = c;}
 
- /*   public void setChampionshipDate(String d)
+   public void setChampionshipDate(String d)
     {
         ChampionshipDate = d;
     }
@@ -118,7 +100,7 @@ public class Championship {
         ChampionshipType = T;
     }
 
-    public void setPlayer(Player p)
+   /* public void setPlayer(Player p)
     {
         players.add(players.size() + 1, p);
     } */

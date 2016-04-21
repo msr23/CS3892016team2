@@ -3,11 +3,13 @@ package com.vinacovre.myapplication;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.firebase.client.Firebase;
@@ -18,6 +20,13 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class AddChampionshipActivity extends AppCompatActivity {
 
     EditText ChampionshipName;
+    EditText ChampionshipLocation;
+
+    EditText ChampionshipTime;
+    EditText ChampionshipDate;
+    RadioButton FriendlyType;
+    RadioButton TorunyType;
+
     private final static String FIREBASE_URL = "https://meupipaapplication.firebaseio.com/championships";
     public Firebase firebaseRef;
     /**
@@ -34,8 +43,13 @@ public class AddChampionshipActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         firebaseRef = new Firebase(FIREBASE_URL).push();
 
-        EditText inputText = (EditText) findViewById(R.id.ChampionshipName);
-        inputText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        ChampionshipName = (EditText) findViewById(R.id.ChampionshipName);
+        ChampionshipLocation = (EditText)findViewById(R.id.ChampionshipLocation);
+        ChampionshipTime = (EditText) findViewById(R.id.ChampionshipTime);
+        ChampionshipDate = (EditText) findViewById(R.id.ChampionshipDate);
+        FriendlyType = (RadioButton) findViewById(R.id.radio_championship_friendly);
+        TorunyType = (RadioButton) findViewById(R.id.radio_championship_normal);
+        ChampionshipName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
@@ -45,11 +59,15 @@ public class AddChampionshipActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
         findViewById(R.id.ChampionshipNext).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendMessage();
-                finish();
+
             }
         });
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -81,22 +99,35 @@ public class AddChampionshipActivity extends AppCompatActivity {
 
 
     public void sendMessage() {
-        EditText textChampNameInput = (EditText) (findViewById(R.id.ChampionshipName));
 
-        String ChampName = textChampNameInput.getText().toString();
 
-        if (!ChampName.equals("")) {
-            Championship champions = new Championship(ChampName, "Admin");
-            System.out.println("******************************************************************");
-            System.out.println("HELLO");
-            System.out.println("******************************************************************");
-            firebaseRef.setValue(champions);
-            System.out.println("******************************************************************");
-            System.out.println("HELLO");
-            System.out.println("******************************************************************");
-            textChampNameInput.setText("");
+        String ChampName = ChampionshipName.getText().toString();
+        String ChampTime = ChampionshipTime.getText().toString();
+        String ChampDate = ChampionshipDate.getText().toString();
+        String ChampLocation = ChampionshipDate.getText().toString();
+        String ChampType;
+
+        if(FriendlyType.isChecked() == true)
+        {
+            ChampType = "Friendly";
+        }else{
+            ChampType = "Toruny";
         }
 
+        if (!ChampName.equals("")) {
+            if (!ChampTime.equals("")) {
+                if(!ChampDate.equals("")) {
+                    if(!ChampLocation.equals("")) {
+                        if(!ChampType.equals("")) {
+                            Championship champions = new Championship(ChampName, "Admin", ChampLocation, ChampTime, ChampDate, ChampType);
+
+                            firebaseRef.setValue(champions);
+                            ChampionshipName.setText("");
+                        }
+                    }
+                }
+            }
+        }
         Intent intet1 = new Intent(this, NormalChampionshipActivity.class);
         startActivity(intet1);
     }
