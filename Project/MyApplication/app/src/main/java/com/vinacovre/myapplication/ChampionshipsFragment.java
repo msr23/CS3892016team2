@@ -65,7 +65,7 @@ public class ChampionshipsFragment extends Fragment {
     }
     */
 
-    @Override
+  /*  @Override
     public void onStart() {
         super.onStart();
 
@@ -77,7 +77,7 @@ public class ChampionshipsFragment extends Fragment {
             }
         };
 
-    }
+    } */
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

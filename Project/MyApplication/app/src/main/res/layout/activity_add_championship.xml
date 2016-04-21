@@ -90,55 +90,69 @@
         android:layout_below="@+id/space10" />
 
     <TextView
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:id="@+id/textView2"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp" />
+
+    <EditText
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ChampionshipTime"
+        android:layout_marginLeft="30dp"
+        android:inputType="time"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:id="@+id/textView3"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ChampionshipDate"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"
+        android:inputType="date" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Location"
-        android:id="@+id/ChampionshipLocation"
         android:layout_marginLeft="33dp"
-        android:layout_below="@+id/space11"
-        android:layout_alignLeft="@+id/ChampionshipType"
-        android:layout_alignStart="@+id/ChampionshipType" />
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/ChampionshipLocation" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/ChampionshipLocation"
         android:layout_marginLeft="33dp"
         android:layout_below="@+id/ChampionshipLocation"
-        android:layout_alignLeft="@+id/ChampionshipLocation"
-        android:layout_alignStart="@+id/ChampionshipLocation" />
-
-    <Space
-        android:layout_width="fill_parent"
-        android:layout_height="30px"
-        android:id="@+id/space12"
-        android:layout_marginLeft="33dp"
-        android:layout_below="@+id/editText3"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
-        android:layout_marginLeft="33dp"
+        android:layout_marginLeft="30dp"
         android:id="@+id/ChampionshipNext"
         android:clickable="false"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <RelativeLayout
-        android:id="@+id/ChampionshipDetails"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/space12"
-        android:layout_alignStart="@+id/editText3" >
-
-    </RelativeLayout>
-
+        android:layout_toEndOf="@+id/ChampionshipLocation"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp" />
 
 
 </LinearLayout>

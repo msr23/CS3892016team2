@@ -12,17 +12,53 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Name"
         android:id="@+id/ChampionshipName"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="false"
-        android:textSize="20dp" />
+        android:layout_alignStart="@+id/ChampionshipCreator" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Creator"
         android:id="@+id/ChampionshipCreator"
-        android:textSize="20dp"
-        android:layout_below="@+id/ChampionshipName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:id="@+id/ChampionshipTime"
+        android:layout_below="@+id/ChampionshipCreator"
+        android:layout_alignStart="@+id/ChampionshipCreator"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:id="@+id/ChampionshipDate"
+        android:layout_below="@+id/ChampionshipTime"
+        android:layout_alignStart="@+id/ChampionshipTime"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/ChampionshipLocation"
+        android:layout_below="@+id/ChampionshipDate"
+        android:layout_alignStart="@+id/ChampionshipDate"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:id="@+id/ChampionshipType"
+        android:layout_below="@+id/ChampionshipLocation"
+        android:layout_alignStart="@+id/ChampionshipLocation"
+        android:layout_marginTop="40dp" />
+
 </RelativeLayout>
