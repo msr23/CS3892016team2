@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:id="@+id/ChampionshipName"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="71dp"
+        android:layout_below="@+id/searchText"
         android:layout_alignStart="@+id/ChampionshipCreator" />
 
     <TextView
@@ -22,8 +23,11 @@
         android:layout_height="wrap_content"
         android:text="Creator"
         android:id="@+id/ChampionshipCreator"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="40dp" />
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="87dp"
+        android:layout_below="@+id/ChampionshipName"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +36,7 @@
         android:id="@+id/ChampionshipTime"
         android:layout_below="@+id/ChampionshipCreator"
         android:layout_alignStart="@+id/ChampionshipCreator"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="60dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +45,7 @@
         android:id="@+id/ChampionshipDate"
         android:layout_below="@+id/ChampionshipTime"
         android:layout_alignStart="@+id/ChampionshipTime"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="60dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +54,7 @@
         android:id="@+id/ChampionshipLocation"
         android:layout_below="@+id/ChampionshipDate"
         android:layout_alignStart="@+id/ChampionshipDate"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="60dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,6 +63,23 @@
         android:id="@+id/ChampionshipType"
         android:layout_below="@+id/ChampionshipLocation"
         android:layout_alignStart="@+id/ChampionshipLocation"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="60dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:imeOptions="actionSend"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search!"
+        android:id="@+id/Search"
+        android:layout_below="@+id/searchText"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
