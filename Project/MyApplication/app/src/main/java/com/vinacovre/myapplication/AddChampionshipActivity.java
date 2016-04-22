@@ -3,7 +3,6 @@ package com.vinacovre.myapplication;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -104,14 +103,14 @@ public class AddChampionshipActivity extends AppCompatActivity {
         String ChampName = ChampionshipName.getText().toString();
         String ChampTime = ChampionshipTime.getText().toString();
         String ChampDate = ChampionshipDate.getText().toString();
-        String ChampLocation = ChampionshipDate.getText().toString();
+        String ChampLocation = ChampionshipLocation.getText().toString();
         String ChampType;
 
         if(FriendlyType.isChecked() == true)
         {
             ChampType = "Friendly";
         }else{
-            ChampType = "Toruny";
+            ChampType = "Normal";
         }
 
         if (!ChampName.equals("")) {
