@@ -99,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+        if (id == R.id.action_contact) {
+            Intent i = new Intent(this, ContactActivity.class);
+            startActivity(i);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

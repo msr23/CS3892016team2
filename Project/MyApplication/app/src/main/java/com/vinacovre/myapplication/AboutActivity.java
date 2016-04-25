@@ -18,7 +18,7 @@ public class AboutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        TextView tv = (TextView) findViewById(R.id.about_link);
+        TextView tv = (TextView) findViewById(R.id.about_link_git);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
