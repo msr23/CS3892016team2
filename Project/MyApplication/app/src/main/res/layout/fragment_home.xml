@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:src="@mipmap/profile"
-        app:civ_border_color="@color/colorAccent"
+        app:civ_border_color="@color/colorPrimaryDark"
         app:civ_border_width="4dp" />
 
     <TextView
@@ -116,7 +116,7 @@
         android:textAlignment="center"
         android:id="@+id/profile_bio_title"
         android:layout_below="@+id/underscore"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />  
 
@@ -138,7 +138,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/underscore"
         android:id="@+id/underscore"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/number_medal_gold"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -151,7 +151,7 @@
         android:id="@+id/profile_facebook_title"
         android:layout_below="@+id/profile_bio_content"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="15dp" />
 
     <TextView
@@ -159,6 +159,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/profile_facebook_content"
+        android:textColorLink="@color/colorPrimaryDark"
         android:id="@+id/profile_facebook_content"
         android:layout_below="@+id/profile_facebook_title"
         android:layout_centerHorizontal="true" />

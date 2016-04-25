@@ -74,8 +74,10 @@ public class MainActivity extends AppCompatActivity {
     public void setTabIcons(TabLayout tabLayout) {
         tabLayout.getTabAt(0).setIcon(R.mipmap.ic_home_white_24dp);
         tabLayout.getTabAt(1).setIcon(R.mipmap.trophy);
-        tabLayout.getTabAt(2).setIcon(R.mipmap.ic_group_white_24dp);
-        tabLayout.getTabAt(3).setIcon(R.mipmap.ic_build_white_24dp);
+        tabLayout.getTabAt(2).setIcon(R.mipmap.ic_build_white_24dp);
+
+//        tabLayout.getTabAt(2).setIcon(R.mipmap.ic_group_white_24dp);
+//        tabLayout.getTabAt(3).setIcon(R.mipmap.ic_build_white_24dp);
     }
 
     @Override
@@ -198,14 +200,18 @@ public class MainActivity extends AppCompatActivity {
 //                    getSupportActionBar().setTitle("Championships");
                     return new ChampionshipsFragment();
                 case 2:
-//                    getSupportActionBar().setTitle("Groups");
-                    return new GroupsFragment();
-                case 3:
 //                    getSupportActionBar().setTitle("Tutorial");
                     return new TutorialFragment();
-//                default:
-//                    getSupportActionBar().setTitle("Home");
-//                    break;
+
+//                case 2:
+////                    getSupportActionBar().setTitle("Groups");
+//                    return new GroupsFragment();
+//                case 3:
+////                    getSupportActionBar().setTitle("Tutorial");
+//                    return new TutorialFragment();
+////                default:
+////                    getSupportActionBar().setTitle("Home");
+////                    break;
             }
             return null;
         }
@@ -213,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 4 total pages.
-            return 4;
+            return 3;
         }
 
         String title;
@@ -230,13 +236,18 @@ public class MainActivity extends AppCompatActivity {
                     return title;
 //                    return null;
                 case 2:
-                    title = getResources().getString(R.string.title_section2);
-                    return title;
-//                    return null;
-                case 3:
                     title = getResources().getString(R.string.title_section3);
                     return title;
 //                    return null;
+
+//                case 2:
+//                    title = getResources().getString(R.string.title_section2);
+//                    return title;
+////                    return null;
+//                case 3:
+//                    title = getResources().getString(R.string.title_section3);
+//                    return title;
+////                    return null;
             }
             return null;
         }

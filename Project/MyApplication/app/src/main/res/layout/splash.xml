@@ -5,7 +5,7 @@
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg__"
+    android:background="@mipmap/bg2"
     android:fitsSystemWindows="true"
     tools:context=".Splash">
 
@@ -28,9 +28,9 @@
         android:shadowRadius="2"
         android:shadowColor="@color/button_material_light"
         android:textIsSelectable="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="163dp"
         android:textAlignment="center"
-        android:textColor="@color/button_material_light"
+        android:textColor="@color/accent_material_light"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -41,12 +41,11 @@
         android:text="@string/splash_description"
         android:id="@+id/splash_description"
         android:textAlignment="center"
-        android:textColor="@color/button_material_light"
+        android:textColor="@color/accent_material_light"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="2"
         android:shadowColor="@color/button_material_light"
-        android:layout_marginTop="231dp"
         android:layout_below="@+id/splash_title"
         android:layout_centerHorizontal="true" />
 
