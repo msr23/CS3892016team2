@@ -69,7 +69,7 @@ public class NormalChampionshipActivity extends AppCompatActivity {
             String oh = "championshipName";
             Query queryRef = firebaseRef.orderByChild(oh).equalTo(searchInput);
 
-            System.out.println(queryRef);
+
 
 
             queryRef.addChildEventListener(new ChildEventListener() {
