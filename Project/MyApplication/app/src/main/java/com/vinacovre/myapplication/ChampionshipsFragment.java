@@ -11,7 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
+
+import java.util.ArrayList;
 
 
 public class ChampionshipsFragment extends Fragment {
@@ -86,6 +92,7 @@ public class ChampionshipsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -99,11 +106,30 @@ public class ChampionshipsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+        Query queryRef = firebaseRef.orderByValue();
+
+
+        ArrayList<Championship> arrayOfChampionships = new ArrayList<Championship>();
+        for(int i = 0; i < 5; i ++)
+        {
+            Championship bitch = new Championship("Example Championship", " " + i);
+            arrayOfChampionships.add(bitch);
+        }
+        ChampionshipAdapter adapter = new ChampionshipAdapter(this.getActivity(), arrayOfChampionships);
+        ListView listview = (ListView) getActivity().findViewById(R.id.championshipListView);
+        listview.setAdapter(adapter);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_championships, container, false);
     }

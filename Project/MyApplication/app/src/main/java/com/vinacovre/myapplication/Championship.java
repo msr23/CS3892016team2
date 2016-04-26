@@ -25,6 +25,12 @@ public class Championship {
         //blank
     }
 
+    public Championship(String n, String l)
+    {
+        ChampionshipName = n;
+        ChampionshipLocation = l;
+    }
+
     public Championship(String n, String c, String l, String d, String t, String ty)
     {
         this.ChampionshipName = n;
