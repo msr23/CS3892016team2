@@ -9,9 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
+
+import java.util.ArrayList;
 
 
 public class ChampionshipsFragment extends Fragment {
@@ -24,8 +29,11 @@ public class ChampionshipsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Firebase firebaseRef = new Firebase("https://meupipaapplication.firebaseio.com/championships");
+    ArrayList<Championship> arrayOfChampionships;
+
+    Firebase firebaseRef;
     
+    private String FIREBASE_URL = "https://meupipaapplication.firebaseio.com/championships";
 
     public ChampionshipsFragment() {
         // Required empty public constructor
@@ -86,6 +94,7 @@ public class ChampionshipsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -99,11 +108,70 @@ public class ChampionshipsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        firebaseRef = new Firebase(FIREBASE_URL);
+        arrayOfChampionships = new ArrayList<>();
+        Query queryRef = firebaseRef.orderByChild("championshipName");
+        queryRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Championship cha = dataSnapshot.getValue(Championship.class);
+
+                String name = cha.getChampionshipName();
+                String location = cha.getChampionshipLocation();
+                Championship twoparama = new Championship(name, location);
+                arrayOfChampionships.add(twoparama);
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+
+
+
+
+            // Map<String, String> value = (Map<String, String>)snapshot.getValue();
+
+            //This gets the first index, I dont know how to choose which one to grab
+            //Maybe I have to change String previousCHild to the index string?
+
+
+
+
+        });
+       // System.out.println(arrayOfChampionships.get(0));
+
+        ChampionshipAdapter adapter = new ChampionshipAdapter(this.getActivity(), arrayOfChampionships);
+        ListView listview = (ListView) getActivity().findViewById(R.id.championshipListView);
+        listview.setAdapter(adapter);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_championships, container, false);
     }
